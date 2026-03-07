@@ -19,4 +19,4 @@ copy or deploy this as your own.
 - Email: rrutvik41@gmail.com
 - LinkedIn: [linkedin.com/in/rutvikraval](https://linkedin.com/in/rutvikraval)
 
-© 2025 Rutvik Raval. All rights reserved.
+© 2026 Rutvik Raval. All rights reserved.
