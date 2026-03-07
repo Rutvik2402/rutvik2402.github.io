@@ -3,7 +3,10 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#050810" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <title>Rutvik Raval — Senior Software Engineer</title>
     <meta name="description"
         content="Senior Software Engineer specializing in Python, FastAPI, cloud-native backend systems and OTA integrations." />
@@ -29,6 +32,9 @@
 
     <!-- NOISE OVERLAY -->
     <div class="noise"></div>
+
+    <!-- SIDEBAR OVERLAY -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
     <!-- ======= SIDEBAR ======= -->
     <aside class="sidebar" id="sidebar">
@@ -114,9 +120,17 @@
     </aside>
 
     <!-- HAMBURGER -->
-    <button class="hamburger" id="hamburger">
-        <span></span><span></span><span></span>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span class="hb-bar hb1"></span>
+        <span class="hb-bar hb2"></span>
+        <span class="hb-bar hb3"></span>
     </button>
+
+    <!-- MOBILE TOP BAR -->
+    <div class="mobile-topbar" id="mobileTopbar">
+        <span class="mtb-name">Rutvik Raval</span>
+        <a href="assets/Rutvik_Raval_Resume.pdf" download class="mtb-resume">↓ Resume</a>
+    </div>
 
     <!-- ======= MAIN ======= -->
     <main class="main" id="main">
@@ -128,7 +142,6 @@
                     <span class="term-dot red"></span>
                     <span class="term-dot yellow"></span>
                     <span class="term-dot green"></span>
-                    <!-- <span class="term-title">rutvik@portfolio: ~/about</span> -->
                 </div>
                 <div class="term-body">
                     <div class="term-line"><span class="t-prompt">$</span> <span class="t-cmd">whoami</span></div>
@@ -141,7 +154,6 @@
                             systems</span> &amp; OTA integrations</div>
                     <div class="term-line t-out out-fade" style="--d:0.3s">Expert in <span class="t-hi">Python · FastAPI
                             · AWS · Microservices</span></div>
-                    <!-- <div class="term-line t-out out-fade" style="--d:0.4s">Led migration of <span class="t-hi">90+ OTA scripts</span> · Mentored <span class="t-hi">5+ engineers</span></div> -->
                     <div class="term-line"><span class="t-prompt">$</span> <span class="t-cmd">cat
                             achievement.txt</span></div>
                     <div class="term-line t-out out-fade" style="--d:0.5s">Published researcher · <span
@@ -162,8 +174,8 @@
                 </h2>
                 <p class="hero-sub">
                     Specialized in Python-based distributed architectures, asynchronous microservices, cloud-native API
-                    ecosystems, Scalable REST API architecture & service orchestration and OTA (Online Travel Agency) &
-                    hospitality platform integrations.
+                    ecosystems, scalable REST API architecture &amp; service orchestration and OTA (Online Travel Agency)
+                    &amp; hospitality platform integrations.
                 </p>
                 <div class="hero-actions">
                     <a href="#experience" class="btn-main">View Experience</a>
@@ -177,7 +189,7 @@
                     <div class="metric-div"></div>
                     <div class="metric">
                         <span class="metric-val">40%</span>
-                        <span class="metric-key">Response times</span>
+                        <span class="metric-key">Response Time ↓</span>
                     </div>
                     <div class="metric-div"></div>
                     <div class="metric">
@@ -187,7 +199,7 @@
                     <div class="metric-div"></div>
                     <div class="metric">
                         <span class="metric-val">80%</span>
-                        <span class="metric-key">Faster Onboarding OTA</span>
+                        <span class="metric-key">Faster OTA Onboarding</span>
                     </div>
                 </div>
             </div>
@@ -203,10 +215,11 @@
                     <div class="tl-marker"></div>
                     <div class="tl-card">
                         <div class="tl-head">
-                            <div>
+                            <div class="tl-head-main">
                                 <h4 class="tl-role">Senior Software Engineer</h4>
                                 <div class="tl-company">
                                     <span class="company-name">STAAH</span>
+                                    <span class="company-sep">·</span>
                                     <span class="company-sub">An Access Group Company, UK</span>
                                 </div>
                             </div>
@@ -251,10 +264,11 @@
                     <div class="tl-marker edu"></div>
                     <div class="tl-card edu-card">
                         <div class="tl-head">
-                            <div>
+                            <div class="tl-head-main">
                                 <h4 class="tl-role">B.E. in Computer Engineering</h4>
                                 <div class="tl-company">
                                     <span class="company-name">Gujarat Technological University</span>
+                                    <span class="company-sep">·</span>
                                     <span class="company-sub">Gujarat, India</span>
                                 </div>
                             </div>
@@ -311,11 +325,11 @@
                     </div>
                     <div class="stack-chips">
                         <span class="chip core">AWS</span>
-                        <span class="chip">Docker</span>
-                        <span class="chip">Git</span>
+                        <span class="chip core">Docker</span>
                         <span class="chip">Linux</span>
+                        <span class="chip">Git</span>
                         <span class="chip">CRON</span>
-                        <!-- <span class="chip">SQS</span> -->
+                        <span class="chip">SQS</span>
                     </div>
                 </div>
 
@@ -326,8 +340,8 @@
                     </div>
                     <div class="stack-chips">
                         <span class="chip core">MySQL</span>
-                        <span class="chip core">PostgreSQL</span>
-                        <span class="chip">Redis</span>
+                        <span class="chip core">Redis</span>
+                        <span class="chip">PostgreSQL</span>
                         <span class="chip">DynamoDB</span>
                         <span class="chip">SQLite</span>
                     </div>
@@ -339,23 +353,23 @@
                         <span class="stack-cat">System Design</span>
                     </div>
                     <div class="stack-chips">
-                        <span class="chip core">Legacy Modernization</span>
-                        <span class="chip">API Migration</span>
-                        <span class="chip">Modular Frameworks</span>
-                        <span class="chip">Alerting Systems</span>
+                        <span class="chip core">Legacy Migration</span>
+                        <span class="chip core">API Design</span>
+                        <span class="chip">Distributed Systems</span>
+                        <span class="chip">Event-Driven</span>
                     </div>
                 </div>
 
                 <div class="stack-card">
                     <div class="stack-header">
-                        <span class="stack-icon">🎯</span>
+                        <span class="stack-icon">🧑‍💻</span>
                         <span class="stack-cat">Leadership</span>
                     </div>
                     <div class="stack-chips">
-                        <span class="chip core">Team Mentoring</span>
+                        <span class="chip core">Tech Mentoring</span>
                         <span class="chip">Code Review</span>
                         <span class="chip">Arch Roadmaps</span>
-                        <span class="chip">Tech Debt Managment</span>
+                        <span class="chip">Tech Debt Mgmt</span>
                     </div>
                 </div>
 
@@ -366,34 +380,23 @@
                 <div class="sec-label" style="margin-bottom:1.2rem; margin-top:.5rem;">// proficiency</div>
                 <div class="prof-item">
                     <div class="prof-meta"><span>Python / FastAPI</span><span class="prof-pct">85%</span></div>
-                    <div class="prof-track">
-                        <div class="prof-fill" data-w="85"></div>
-                    </div>
+                    <div class="prof-track"><div class="prof-fill" data-w="85"></div></div>
                 </div>
                 <div class="prof-item">
                     <div class="prof-meta"><span>AWS / Cloud Infra</span><span class="prof-pct">75%</span></div>
-                    <div class="prof-track">
-                        <div class="prof-fill" data-w="75"></div>
-                    </div>
+                    <div class="prof-track"><div class="prof-fill" data-w="75"></div></div>
                 </div>
                 <div class="prof-item">
-                    <div class="prof-meta"><span>System Design &amp; Migrations</span><span class="prof-pct">80%</span>
-                    </div>
-                    <div class="prof-track">
-                        <div class="prof-fill" data-w="80"></div>
-                    </div>
+                    <div class="prof-meta"><span>System Design &amp; Migrations</span><span class="prof-pct">80%</span></div>
+                    <div class="prof-track"><div class="prof-fill" data-w="80"></div></div>
                 </div>
                 <div class="prof-item">
                     <div class="prof-meta"><span>Databases (SQL / NoSQL)</span><span class="prof-pct">85%</span></div>
-                    <div class="prof-track">
-                        <div class="prof-fill" data-w="85"></div>
-                    </div>
+                    <div class="prof-track"><div class="prof-fill" data-w="85"></div></div>
                 </div>
                 <div class="prof-item">
                     <div class="prof-meta"><span>Perl</span><span class="prof-pct">85%</span></div>
-                    <div class="prof-track">
-                        <div class="prof-fill" data-w="85"></div>
-                    </div>
+                    <div class="prof-track"><div class="prof-fill" data-w="85"></div></div>
                 </div>
             </div>
         </section>
@@ -427,8 +430,7 @@
                         <h4>Perl → Python Migration</h4>
                         <p>Spearheaded end-to-end migration of <strong>90+ OTA integration scripts</strong> from Perl to
                             Python. Owned full architecture, rollout strategy, and delivery, cutting technical debt by
-                            <strong>35%</strong>.
-                        </p>
+                            <strong>35%</strong>.</p>
                         <div class="proj-tags">
                             <span>Python</span><span>Perl</span><span>Microservices</span><span>FastAPI</span>
                         </div>
@@ -508,7 +510,7 @@
                 <div class="research-body">
                     <h4>
                         <a href="https://www.ijcaonline.org/archives/volume184/number13/32385-2022922123/"
-                            target="_blank">Face Mask, Social Distance & Body Temperature Detector
+                            target="_blank">Face Mask, Social Distance &amp; Body Temperature Detector
                         </a>
                     </h4>
                     <p class="research-authors">Raval R., Patel J. &amp; Patel H. — <em>May 2022</em></p>
@@ -518,9 +520,8 @@
                     </p>
                     <p class="research-desc">
                         BE Capstone research paper presenting a computer-vision system combining real-time face mask
-                        detection,
-                        social distancing monitoring, and body temperature analysis — developed in response to COVID-19
-                        public safety challenges.
+                        detection, social distancing monitoring, and body temperature analysis — developed in response
+                        to COVID-19 public safety challenges.
                     </p>
                     <div class="research-tags">
                         <span>Computer Vision</span><span>Python</span><span>ML</span><span>Public
@@ -535,7 +536,6 @@
 
             <a href="https://www.linkedin.com/posts/rutvikraval_certificate-of-appreciation-rutvik-activity-7304029627860029440-HX6c/"
                 target="_blank" class="award-link">
-
                 <div class="award-card">
                     <div class="award-icon">🏆</div>
                     <div class="award-body">
@@ -547,7 +547,6 @@
                         </p>
                     </div>
                 </div>
-
             </a>
         </section>
 
@@ -599,23 +598,23 @@
                     </div>
 
                     <div class="fgroup">
-                        <label>name <span class="req">*</span></label>
+                        <label for="fname">name <span class="req">*</span></label>
                         <input type="text" name="name" id="fname" placeholder="Tech Geek" required />
                     </div>
 
                     <div class="fgroup">
-                        <label>email <span class="req">*</span></label>
+                        <label for="femail">email <span class="req">*</span></label>
                         <input type="email" name="email" id="femail" placeholder="tech@geek.com" required />
                     </div>
 
                     <div class="fgroup">
-                        <label>subject <span class="req">*</span></label>
+                        <label for="fsubject">subject <span class="req">*</span></label>
                         <input type="text" name="subject" id="fsubject" placeholder="Job opportunity / collaboration"
                             required />
                     </div>
 
                     <div class="fgroup">
-                        <label>message <span class="req">*</span></label>
+                        <label for="fmessage">message <span class="req">*</span></label>
                         <textarea name="message" id="fmessage" rows="4"
                             placeholder="Tell me about the role or project..." required></textarea>
                     </div>
@@ -631,6 +630,30 @@
         </section>
 
     </main>
+
+    <!-- MOBILE BOTTOM NAV -->
+    <nav class="mobile-bottom-nav" id="mobileBottomNav">
+        <a href="#about"      class="mbn-item active" data-sec="about">
+            <svg class="mbn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+            <span class="mbn-label">About</span>
+        </a>
+        <a href="#experience" class="mbn-item" data-sec="experience">
+            <svg class="mbn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+            <span class="mbn-label">Exp</span>
+        </a>
+        <a href="#skills"     class="mbn-item" data-sec="skills">
+            <svg class="mbn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            <span class="mbn-label">Skills</span>
+        </a>
+        <a href="#projects"   class="mbn-item" data-sec="projects">
+            <svg class="mbn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <span class="mbn-label">Projects</span>
+        </a>
+        <a href="#contact"    class="mbn-item" data-sec="contact">
+            <svg class="mbn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <span class="mbn-label">Contact</span>
+        </a>
+    </nav>
 
     <!-- ======= AI CHAT ======= -->
     <div class="chat-fab" id="chatFab">
@@ -649,7 +672,7 @@
                     <span class="chat-online">● online</span>
                 </div>
             </div>
-            <button id="chatX">✕</button>
+            <button id="chatX" aria-label="Close chat">✕</button>
         </div>
         <div class="chat-body" id="chatBody">
             <div class="cmsg bot">
@@ -660,11 +683,11 @@
             </div>
         </div>
         <div class="chat-foot">
-            <input type="text" id="chatIn" placeholder="Ask about Rutvik..." />
-            <button id="chatGo">→</button>
+            <input type="text" id="chatIn" placeholder="Ask about Rutvik..." autocomplete="off" />
+            <button id="chatGo" aria-label="Send">→</button>
         </div>
     </div>
-    <script src="config.js"></script>
+
     <script src="script.js"></script>
 </body>
 
