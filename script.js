@@ -6,10 +6,10 @@
 // ⚠️  Replace "YOUR_API_KEY_HERE" with your Anthropic API key
 //     OR use a backend proxy (see README.md for safe key handling)
 const AI = {
-    key: typeof GROQ_KEY !== "undefined" ? GROQ_KEY : "",
-  model: "llama-3.1-8b-instant",  // free & very fast
-  tokens: 500,
-  system: `
+    key: "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",
+    model: "llama-3.1-8b-instant",  // free & very fast
+    tokens: 500,
+    system: `
   You are an AI assistant for Rutvik Raval’s portfolio website. Your job is to answer recruiter, hiring manager, and collaborator questions about Rutvik clearly, professionally, and concisely.
 
 Keep answers helpful, friendly, and under 4 sentences unless more detail is specifically requested.
@@ -127,276 +127,276 @@ ASSISTANT BEHAVIOR
 
 // ── PARTICLES CANVAS ──────────────────────────────────
 (function initParticles() {
-  const canvas = document.getElementById("particles");
-  if (!canvas) return;
-  const ctx = canvas.getContext("2d");
-  let W, H, dots = [];
+    const canvas = document.getElementById("particles");
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    let W, H, dots = [];
 
-  function resize() {
-    W = canvas.width  = window.innerWidth;
-    H = canvas.height = window.innerHeight;
-  }
-  window.addEventListener("resize", resize);
-  resize();
-
-  for (let i = 0; i < 60; i++) {
-    dots.push({
-      x: Math.random() * 1920,
-      y: Math.random() * 1080,
-      r: Math.random() * 1.5 + .3,
-      vx: (Math.random() - .5) * .25,
-      vy: (Math.random() - .5) * .25,
-      a: Math.random() * .5 + .1
-    });
-  }
-
-  function draw() {
-    ctx.clearRect(0, 0, W, H);
-    dots.forEach(d => {
-      d.x += d.vx; d.y += d.vy;
-      if (d.x < 0) d.x = W; if (d.x > W) d.x = 0;
-      if (d.y < 0) d.y = H; if (d.y > H) d.y = 0;
-
-      ctx.beginPath();
-      ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(0,255,135,${d.a})`;
-      ctx.fill();
-    });
-
-    // draw lines between close dots
-    for (let i = 0; i < dots.length; i++) {
-      for (let j = i + 1; j < dots.length; j++) {
-        const dx = dots[i].x - dots[j].x;
-        const dy = dots[i].y - dots[j].y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 120) {
-          ctx.beginPath();
-          ctx.moveTo(dots[i].x, dots[i].y);
-          ctx.lineTo(dots[j].x, dots[j].y);
-          ctx.strokeStyle = `rgba(0,255,135,${.06 * (1 - dist / 120)})`;
-          ctx.lineWidth = .5;
-          ctx.stroke();
-        }
-      }
+    function resize() {
+        W = canvas.width = window.innerWidth;
+        H = canvas.height = window.innerHeight;
     }
-    requestAnimationFrame(draw);
-  }
-  draw();
+    window.addEventListener("resize", resize);
+    resize();
+
+    for (let i = 0; i < 60; i++) {
+        dots.push({
+            x: Math.random() * 1920,
+            y: Math.random() * 1080,
+            r: Math.random() * 1.5 + .3,
+            vx: (Math.random() - .5) * .25,
+            vy: (Math.random() - .5) * .25,
+            a: Math.random() * .5 + .1
+        });
+    }
+
+    function draw() {
+        ctx.clearRect(0, 0, W, H);
+        dots.forEach(d => {
+            d.x += d.vx; d.y += d.vy;
+            if (d.x < 0) d.x = W; if (d.x > W) d.x = 0;
+            if (d.y < 0) d.y = H; if (d.y > H) d.y = 0;
+
+            ctx.beginPath();
+            ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(0,255,135,${d.a})`;
+            ctx.fill();
+        });
+
+        // draw lines between close dots
+        for (let i = 0; i < dots.length; i++) {
+            for (let j = i + 1; j < dots.length; j++) {
+                const dx = dots[i].x - dots[j].x;
+                const dy = dots[i].y - dots[j].y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < 120) {
+                    ctx.beginPath();
+                    ctx.moveTo(dots[i].x, dots[i].y);
+                    ctx.lineTo(dots[j].x, dots[j].y);
+                    ctx.strokeStyle = `rgba(0,255,135,${.06 * (1 - dist / 120)})`;
+                    ctx.lineWidth = .5;
+                    ctx.stroke();
+                }
+            }
+        }
+        requestAnimationFrame(draw);
+    }
+    draw();
 })();
 
 // ── UPTIME COUNTER ────────────────────────────────────
 (function uptime() {
-  const el = document.getElementById("uptime-text");
-  if (!el) return;
-  const start = Date.now();
-  setInterval(() => {
-    const s = Math.floor((Date.now() - start) / 1000);
-    const h = String(Math.floor(s / 3600)).padStart(2,"0");
-    const m = String(Math.floor((s % 3600) / 60)).padStart(2,"0");
-    const sec = String(s % 60).padStart(2,"0");
-    el.textContent = `uptime ${h}:${m}:${sec}`;
-  }, 1000);
+    const el = document.getElementById("uptime-text");
+    if (!el) return;
+    const start = Date.now();
+    setInterval(() => {
+        const s = Math.floor((Date.now() - start) / 1000);
+        const h = String(Math.floor(s / 3600)).padStart(2, "0");
+        const m = String(Math.floor((s % 3600) / 60)).padStart(2, "0");
+        const sec = String(s % 60).padStart(2, "0");
+        el.textContent = `uptime ${h}:${m}:${sec}`;
+    }, 1000);
 })();
 
 // ── SIDEBAR ROLE TYPER ────────────────────────────────
 (function roleTyper() {
-  const el = document.getElementById("sidebarRole");
-  if (!el) return;
-  const phrases = ["Senior SWE", "Python Expert", "Backend Arch", "OTA Specialist"];
-  let pi = 0, ci = 0, del = false;
+    const el = document.getElementById("sidebarRole");
+    if (!el) return;
+    const phrases = ["Senior SWE", "Python Expert", "Backend Arch", "OTA Specialist"];
+    let pi = 0, ci = 0, del = false;
 
-  function tick() {
-    const p = phrases[pi];
-    el.textContent = del ? p.slice(0, --ci) : p.slice(0, ++ci);
-    let t = del ? 60 : 100;
-    if (!del && ci === p.length) { t = 1600; del = true; }
-    else if (del && ci === 0)    { del = false; pi = (pi + 1) % phrases.length; t = 350; }
-    setTimeout(tick, t);
-  }
-  tick();
+    function tick() {
+        const p = phrases[pi];
+        el.textContent = del ? p.slice(0, --ci) : p.slice(0, ++ci);
+        let t = del ? 60 : 100;
+        if (!del && ci === p.length) { t = 1600; del = true; }
+        else if (del && ci === 0) { del = false; pi = (pi + 1) % phrases.length; t = 350; }
+        setTimeout(tick, t);
+    }
+    tick();
 })();
 
 // ── SMOOTH SCROLL + ACTIVE NAV ────────────────────────
 const navItems = document.querySelectorAll(".nav-item");
-const sections  = document.querySelectorAll("section[id]");
+const sections = document.querySelectorAll("section[id]");
 
 navItems.forEach(item => {
-  item.addEventListener("click", e => {
-    e.preventDefault();
-    const target = document.querySelector(item.getAttribute("href"));
-    if (target) target.scrollIntoView({ behavior: "smooth" });
-    document.getElementById("sidebar")?.classList.remove("open");
-  });
+    item.addEventListener("click", e => {
+        e.preventDefault();
+        const target = document.querySelector(item.getAttribute("href"));
+        if (target) target.scrollIntoView({ behavior: "smooth" });
+        document.getElementById("sidebar")?.classList.remove("open");
+    });
 });
 
 new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      navItems.forEach(n => n.classList.remove("active"));
-      const a = document.querySelector(`.nav-item[data-sec="${entry.target.id}"]`);
-      if (a) a.classList.add("active");
-    }
-  });
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            navItems.forEach(n => n.classList.remove("active"));
+            const a = document.querySelector(`.nav-item[data-sec="${entry.target.id}"]`);
+            if (a) a.classList.add("active");
+        }
+    });
 }, { rootMargin: "-45% 0px -45% 0px" }).observe(
-  ...([...sections].map(s => s)) // observe each section
+    ...([...sections].map(s => s)) // observe each section
 );
 // re-do properly:
 sections.forEach(s => {
-  new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        navItems.forEach(n => n.classList.remove("active"));
-        const a = document.querySelector(`.nav-item[data-sec="${entry.target.id}"]`);
-        if (a) a.classList.add("active");
-      }
-    });
-  }, { rootMargin: "-45% 0px -45% 0px" }).observe(s);
+    new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                navItems.forEach(n => n.classList.remove("active"));
+                const a = document.querySelector(`.nav-item[data-sec="${entry.target.id}"]`);
+                if (a) a.classList.add("active");
+            }
+        });
+    }, { rootMargin: "-45% 0px -45% 0px" }).observe(s);
 });
 
 // ── REVEAL ON SCROLL ──────────────────────────────────
 new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("in"); });
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("in"); });
 }, { threshold: .08 }).observe(...([...document.querySelectorAll(".reveal")]));
 // re-do properly:
 document.querySelectorAll(".reveal").forEach(el => {
-  new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("in"); });
-  }, { threshold: .08 }).observe(el);
+    new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("in"); });
+    }, { threshold: .08 }).observe(el);
 });
 
 // ── SKILL BAR ANIMATION ───────────────────────────────
 new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.querySelectorAll(".prof-fill").forEach(b => {
-        b.style.width = b.dataset.w + "%";
-      });
-    }
-  });
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.querySelectorAll(".prof-fill").forEach(b => {
+                b.style.width = b.dataset.w + "%";
+            });
+        }
+    });
 }, { threshold: .2 }).observe(document.getElementById("skills") || document.body);
 
 // ── HAMBURGER ─────────────────────────────────────────
 document.getElementById("hamburger")?.addEventListener("click", () => {
-  document.getElementById("sidebar")?.classList.toggle("open");
+    document.getElementById("sidebar")?.classList.toggle("open");
 });
 
 // ── CONTACT FORM ──────────────────────────────────────
 document.getElementById("contactForm")?.addEventListener("submit", async e => {
-  e.preventDefault();
+    e.preventDefault();
 
-  const btn  = document.getElementById("sendBtn");
-  const note = document.getElementById("formNote");
+    const btn = document.getElementById("sendBtn");
+    const note = document.getElementById("formNote");
 
-  btn.disabled = true;
-  btn.textContent = "Sending...";
+    btn.disabled = true;
+    btn.textContent = "Sending...";
 
-  const fd = new FormData(e.target);   // ✅ collect data first
+    const fd = new FormData(e.target);   // ✅ collect data first
 
-  try {
-    const res = await fetch("https://formspree.io/f/xgonvokp", {
-      method: "POST",
-      body: fd,
-      headers: { Accept: "application/json" }
-    });
+    try {
+        const res = await fetch("https://formspree.io/f/xgonvokp", {
+            method: "POST",
+            body: fd,
+            headers: { Accept: "application/json" }
+        });
 
-    if (res.ok) {
-      note.textContent = "✓ Message sent! Rutvik will get back to you soon.";
-      e.target.reset();   // ✅ reset AFTER sending
-    } else {
-      note.textContent = "⚠ Something went wrong. Email directly!";
+        if (res.ok) {
+            note.textContent = "✓ Message sent! Rutvik will get back to you soon.";
+            e.target.reset();   // ✅ reset AFTER sending
+        } else {
+            note.textContent = "⚠ Something went wrong. Email directly!";
+        }
+
+    } catch (err) {
+        note.textContent = "⚠ Network error. Try again.";
     }
 
-  } catch (err) {
-    note.textContent = "⚠ Network error. Try again.";
-  }
-
-  btn.disabled = false;
-  btn.textContent = "Send Message →";
+    btn.disabled = false;
+    btn.textContent = "Send Message →";
 });
 
 // ── AI CHAT ───────────────────────────────────────────
-const chatFab  = document.getElementById("chatFab");
-const chatWin  = document.getElementById("chatWin");
-const chatX    = document.getElementById("chatX");
-const chatIn   = document.getElementById("chatIn");
-const chatGo   = document.getElementById("chatGo");
+const chatFab = document.getElementById("chatFab");
+const chatWin = document.getElementById("chatWin");
+const chatX = document.getElementById("chatX");
+const chatIn = document.getElementById("chatIn");
+const chatGo = document.getElementById("chatGo");
 const chatBody = document.getElementById("chatBody");
-let history    = [];
+let history = [];
 
 const toggleChat = (open) => {
-  const state = open !== undefined ? open : !chatWin.classList.contains("open");
-  chatWin.classList.toggle("open", state);
+    const state = open !== undefined ? open : !chatWin.classList.contains("open");
+    chatWin.classList.toggle("open", state);
 };
 
-chatFab.addEventListener("click",  () => toggleChat());
-chatX.addEventListener("click",    () => toggleChat(false));
+chatFab.addEventListener("click", () => toggleChat());
+chatX.addEventListener("click", () => toggleChat(false));
 
 function addMsg(text, role) {
-  const wrap   = document.createElement("div");
-  wrap.className = `cmsg ${role}`;
-  const bubble = document.createElement("div");
-  bubble.className = "cbubble";
-  bubble.textContent = text;
-  wrap.appendChild(bubble);
-  chatBody.appendChild(wrap);
-  chatBody.scrollTop = chatBody.scrollHeight;
-  return bubble;
+    const wrap = document.createElement("div");
+    wrap.className = `cmsg ${role}`;
+    const bubble = document.createElement("div");
+    bubble.className = "cbubble";
+    bubble.textContent = text;
+    wrap.appendChild(bubble);
+    chatBody.appendChild(wrap);
+    chatBody.scrollTop = chatBody.scrollHeight;
+    return bubble;
 }
 
 function showTyping() {
-  const wrap = document.createElement("div");
-  wrap.className = "cmsg bot"; wrap.id = "tdots";
-  wrap.innerHTML = `<div class="cbubble"><span class="typing"><span></span><span></span><span></span></span></div>`;
-  chatBody.appendChild(wrap);
-  chatBody.scrollTop = chatBody.scrollHeight;
+    const wrap = document.createElement("div");
+    wrap.className = "cmsg bot"; wrap.id = "tdots";
+    wrap.innerHTML = `<div class="cbubble"><span class="typing"><span></span><span></span><span></span></span></div>`;
+    chatBody.appendChild(wrap);
+    chatBody.scrollTop = chatBody.scrollHeight;
 }
 function hideTyping() { document.getElementById("tdots")?.remove(); }
 
 // ── UPDATED sendMsg for Gemini ─────────────────────────
 async function sendMsg() {
-  const text = chatIn.value.trim();
-  if (!text) return;
-  chatIn.value = ""; chatGo.disabled = true;
-  addMsg(text, "user");
-  history.push({ role: "user", content: text });
-  showTyping();
+    const text = chatIn.value.trim();
+    if (!text) return;
+    chatIn.value = ""; chatGo.disabled = true;
+    addMsg(text, "user");
+    history.push({ role: "user", content: text });
+    showTyping();
 
-  try {
-    const res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${AI.key}`
-      },
-      body: JSON.stringify({
-        model: AI.model,
-        max_tokens: AI.tokens,
-        messages: [
-          { role: "system", content: AI.system },
-          ...history
-        ]
-      })
-    });
+    try {
+        const res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${AI.key}`
+            },
+            body: JSON.stringify({
+                model: AI.model,
+                max_tokens: AI.tokens,
+                messages: [
+                    { role: "system", content: AI.system },
+                    ...history
+                ]
+            })
+        });
 
-    const data = await res.json();
-    if (data.error) throw new Error(data.error.message);
+        const data = await res.json();
+        if (data.error) throw new Error(data.error.message);
 
-    const reply = data.choices[0].message.content;
-    history.push({ role: "assistant", content: reply });
-    hideTyping();
-    addMsg(reply, "bot");
+        const reply = data.choices[0].message.content;
+        history.push({ role: "assistant", content: reply });
+        hideTyping();
+        addMsg(reply, "bot");
 
-  } catch (err) {
-    hideTyping();
-    addMsg("⚠️ Connection issue. Reach Rutvik at rrutvik41@gmail.com!", "bot");
-    console.error(err);
-  } finally {
-    chatGo.disabled = false;
-    chatIn.focus();
-  }
+    } catch (err) {
+        hideTyping();
+        addMsg("⚠️ Connection issue. Reach Rutvik at rrutvik41@gmail.com!", "bot");
+        console.error(err);
+    } finally {
+        chatGo.disabled = false;
+        chatIn.focus();
+    }
 }
 
 chatGo.addEventListener("click", sendMsg);
 chatIn.addEventListener("keydown", e => {
-  if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); sendMsg(); }
+    if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); sendMsg(); }
 });
