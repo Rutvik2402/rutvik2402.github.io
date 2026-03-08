@@ -26,7 +26,7 @@
     --mono: 'JetBrains Mono', monospace;
     --display: 'Bricolage Grotesque', sans-serif;
     --ease: cubic-bezier(.4, 0, .2, 1);
-    --mbn-h: 64px;
+    --mbn-h: 56px;
 }
 
 /* ── RESET ── */
@@ -354,18 +354,19 @@ button, a, [role="button"] {
 .hamburger {
     display: none;
     position: fixed;
-    top: .85rem;
-    left: .85rem;
+    /* Precisely centered in the 56px topbar: (56 - 36) / 2 = 10px */
+    top: 10px;
+    left: 10px;
     z-index: 300;
-    background: var(--surface);
+    background: transparent;
     border: 1px solid var(--border2);
-    border-radius: 9px;
-    width: 44px;
-    height: 44px;
+    border-radius: 7px;
+    width: 36px;
+    height: 36px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 5px;
+    gap: 4px;
     cursor: pointer;
     transition: background .2s;
 }
@@ -374,7 +375,7 @@ button, a, [role="button"] {
 
 .hb-bar {
     display: block;
-    width: 20px;
+    width: 16px;
     height: 2px;
     background: var(--text);
     border-radius: 2px;
@@ -384,11 +385,11 @@ button, a, [role="button"] {
 
 /* Animated X when sidebar open */
 .sidebar.open ~ .hamburger .hb1,
-.hamburger.open .hb1 { transform: translateY(7px) rotate(45deg); }
+.hamburger.open .hb1 { transform: translateY(6px) rotate(45deg); }
 .sidebar.open ~ .hamburger .hb2,
 .hamburger.open .hb2 { opacity: 0; transform: scaleX(0); }
 .sidebar.open ~ .hamburger .hb3,
-.hamburger.open .hb3 { transform: translateY(-7px) rotate(-45deg); }
+.hamburger.open .hb3 { transform: translateY(-6px) rotate(-45deg); }
 
 /* ── MOBILE TOP BAR ── */
 .mobile-topbar {
@@ -403,7 +404,8 @@ button, a, [role="button"] {
     border-bottom: 1px solid var(--border);
     align-items: center;
     justify-content: space-between;
-    padding: 0 1rem 0 3.8rem;
+    /* left padding = hamburger left(10) + width(36) + gap(10) = 56px */
+    padding: 0 1rem 0 56px;
 }
 
 .mtb-name {
@@ -442,6 +444,8 @@ button, a, [role="button"] {
     justify-content: space-around;
     align-items: center;
     padding-bottom: env(safe-area-inset-bottom);
+    /* Prevent content overflow */
+    overflow: hidden;
 }
 
 .mbn-item {
@@ -449,25 +453,33 @@ button, a, [role="button"] {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 3px;
+    gap: 2px;
     flex: 1;
-    padding: .4rem .2rem;
+    /* Constrain height precisely — no overflow */
+    padding: .35rem .1rem;
     color: var(--text-muted);
     min-height: 44px;
+    max-height: var(--mbn-h);
     transition: color .2s;
     position: relative;
+    overflow: hidden;
 }
 
 .mbn-icon {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     flex-shrink: 0;
 }
 
 .mbn-label {
     font-family: var(--mono);
-    font-size: .58rem;
-    letter-spacing: .02em;
+    font-size: .55rem;
+    letter-spacing: .01em;
+    /* Prevent label from wrapping or pushing layout */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
 }
 
 .mbn-item.active,
@@ -552,6 +564,9 @@ button, a, [role="button"] {
     overflow: hidden;
     box-shadow: 0 0 60px rgba(0, 255, 135, .06);
     align-self: center;
+    /* Prevent the card itself from overflowing its grid column */
+    min-width: 0;
+    max-width: 100%;
 }
 
 .term-bar {
@@ -590,10 +605,21 @@ button, a, [role="button"] {
     font-family: var(--mono);
     font-size: .82rem;
     line-height: 1.9;
+    /* Command lines: flex so $ prompt and command align on one row */
     display: flex;
     align-items: baseline;
     gap: .6rem;
     white-space: nowrap;
+}
+
+/* Output lines: block so inline text + <span> highlights flow as
+   normal prose — flex would make each span a separate flex child,
+   causing the mid-sentence word breaks seen on mobile */
+.term-line.t-out {
+    display: block;
+    white-space: normal;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .t-prompt { color: var(--green); user-select: none; }
@@ -602,8 +628,6 @@ button, a, [role="button"] {
 .t-out {
     color: var(--text-muted);
     padding-left: 1.4rem;
-    white-space: normal;
-    word-break: break-word;
 }
 
 .t-hi { color: var(--green); font-weight: 600; }
@@ -856,8 +880,14 @@ button, a, [role="button"] {
     color: var(--text-muted);
     display: flex;
     gap: .65rem;
+    /* Allow wrapping so bullet-tag + text don't overflow card */
     align-items: flex-start;
+    flex-wrap: wrap;
     line-height: 1.6;
+    /* Prevent text from overflowing the card */
+    min-width: 0;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .tl-bullets li strong { color: var(--text); }
@@ -871,6 +901,8 @@ button, a, [role="button"] {
     white-space: nowrap;
     flex-shrink: 0;
     margin-top: .15rem;
+    /* Ensure tag never gets squished below readable size */
+    min-width: fit-content;
 }
 
 .bullet-tag.python   { background: rgba(0,180,216,.15);   color: #00b4d8; border: 1px solid rgba(0,180,216,.25); }
@@ -1466,6 +1498,19 @@ button, a, [role="button"] {
     min-height: 36px;
 }
 
+/* iOS fix: font-size < 16px triggers auto-zoom on focus.
+   Force 16px on mobile, then visually scale down via transform. */
+@media (max-width: 960px) {
+    .chat-foot input {
+        font-size: 16px;
+    }
+
+    .fgroup input,
+    .fgroup textarea {
+        font-size: 16px;
+    }
+}
+
 .chat-foot input:focus { border-color: var(--border2); }
 
 .chat-foot button {
@@ -1657,7 +1702,8 @@ button, a, [role="button"] {
     /* Contact */
     .contact-intro { font-size: .88rem; }
     .clink { font-size: .78rem; }
-    .fgroup input, .fgroup textarea { font-size: .82rem; padding: .6rem .8rem; }
+    /* Keep font-size at 16px on mobile inputs to prevent iOS auto-zoom */
+    .fgroup input, .fgroup textarea { padding: .6rem .8rem; }
 }
 
 /* =====================================================
