@@ -203,6 +203,7 @@ function openSidebar() {
     sidebar.classList.add("open");
     overlay.classList.add("visible");
     hamburgerBtn.classList.add("open");
+    hamburgerBtn.setAttribute("aria-expanded", "true");
     document.body.style.overflow = "hidden";
 }
 
@@ -210,6 +211,7 @@ function closeSidebar() {
     sidebar.classList.remove("open");
     overlay.classList.remove("visible");
     hamburgerBtn.classList.remove("open");
+    hamburgerBtn.setAttribute("aria-expanded", "false");
     document.body.style.overflow = "";
 }
 
@@ -229,21 +231,22 @@ const navItems   = document.querySelectorAll(".nav-item");
 const mbnItems   = document.querySelectorAll(".mbn-item");
 const sections   = document.querySelectorAll("section[id]");
 
-function scrollTo(href) {
+// NOTE: Renamed from scrollTo → scrollToSection to avoid overriding
+// the native window.scrollTo API (critical mobile navigation bug fix).
+function scrollToSection(href) {
     const target = document.querySelector(href);
-    if (target) {
-        // Account for mobile topbar offset on mobile
-        const isMobile = window.innerWidth <= 960;
-        const offset = isMobile ? 56 : 0;
-        const top = target.getBoundingClientRect().top + window.scrollY - offset;
-        window.scrollTo({ top, behavior: "smooth" });
-    }
+    if (!target) return;
+    // Account for mobile topbar offset on mobile
+    const isMobile = window.innerWidth <= 960;
+    const offset = isMobile ? 56 : 0;
+    const top = target.getBoundingClientRect().top + window.scrollY - offset;
+    window.scrollTo({ top, behavior: "smooth" });
 }
 
 navItems.forEach(item => {
     item.addEventListener("click", e => {
         e.preventDefault();
-        scrollTo(item.getAttribute("href"));
+        scrollToSection(item.getAttribute("href"));
         closeSidebar();
     });
 });
@@ -251,7 +254,7 @@ navItems.forEach(item => {
 mbnItems.forEach(item => {
     item.addEventListener("click", e => {
         e.preventDefault();
-        scrollTo(item.getAttribute("href"));
+        scrollToSection(item.getAttribute("href"));
     });
 });
 
