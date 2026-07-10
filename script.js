@@ -21,15 +21,22 @@ Email: rrutvik41@gmail.com
 Phone: +91 97734 84053  
 Location: Surat, Gujarat, India (available for global opportunities)
 
-Role: Senior Software Engineer — OTA Integration
+Role: Software Engineer — currently building Customer Master (MDM) at Verdantis; previously Senior Software Engineer, OTA Integration at STAAH
 
-Rutvik is a backend engineer with 4+ years of professional experience designing scalable backend systems, modernizing legacy platforms, and building high-performance APIs.
+Rutvik is a backend engineer with 4+ years of professional experience designing scalable backend systems, modernizing legacy platforms, and building high-performance APIs. He works AI-natively — using tools like Claude, GitHub Copilot, ChatGPT, Cursor, Devin, Antigravity, and Windsurf as part of his daily engineering workflow.
 
-He specializes in Python-based backend architectures, OTA integrations, and large-scale system migrations.
+He specializes in Python-based backend architectures, OTA integrations, large-scale system migrations, and — most recently — enterprise data management (MDM, data quality, entity resolution).
 
 --------------------------------
 PROFESSIONAL EXPERIENCE
 --------------------------------
+
+Company: Verdantis  
+Role: Software Engineer — Customer Master (MDM)  
+Duration: April 2026 – Present  
+Location: Mumbai, India
+
+Rutvik is building a Customer Master Data Management platform for ESAG Group, currently in active development. Work includes data standardization, validation, and entity-resolution workflows, plus data governance rules for accurate, deduplicated customer master records.
 
 Company: STAAH (An Access Group Company, UK)  
 Role: Senior Software Engineer — OTA Integration  
@@ -58,6 +65,8 @@ Backend Engineering: Python, Perl, FastAPI, Flask, Django, Microservices Archite
 API & Integrations: REST APIs, OTA Integrations, ARI Push Systems, Reservation Workflows
 Cloud & DevOps: AWS, Docker, Git, Linux, CRON jobs, SQS
 Databases: MySQL, PostgreSQL, SQLite, Redis, Amazon DynamoDB
+Data Engineering & MDM: Data quality, entity resolution, data standardization, data governance, ETL pipelines
+AI-Assisted Development: Claude, ChatGPT, GitHub Copilot, Cursor, Devin, Antigravity, Windsurf
 System Design: Legacy modernization (Perl → Python), API migrations, scalable backend architectures
 Leadership: Technical mentoring, architectural design, backend best practices
 
@@ -181,7 +190,7 @@ ASSISTANT BEHAVIOR
 (function roleTyper() {
     const el = document.getElementById("sidebarRole");
     if (!el) return;
-    const phrases = ["Senior SWE", "Python Expert", "Backend Arch", "OTA Specialist"];
+    const phrases = ["Senior SWE", "Python Expert", "Backend Arch", "OTA Specialist", "MDM / Data Eng", "AI-Native Builder"];
     let pi = 0, ci = 0, del = false;
     function tick() {
         const p = phrases[pi];
